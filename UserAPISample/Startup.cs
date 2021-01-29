@@ -39,6 +39,11 @@ namespace UserAPISample
             services.AddControllers()
                 .AddNewtonsoftJson(options => options.UseCamelCasing(false));
 
+            services.AddMvc(options =>
+            {
+                options.SuppressAsyncSuffixInActionNames = false;
+            });
+
             services.AddSwaggerGen(c =>
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UserAPISample", Version = "v1" })
             );
